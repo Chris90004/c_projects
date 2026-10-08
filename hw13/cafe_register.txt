@@ -1,0 +1,29 @@
+After preview_discount(price, 10), why is price unchanged? What must main pass so apply_discount can change it?
+you are not pointing to the price value in main but a copy that was created to be worked on in preview_discount
+
+Why does charge return an error code and write through new_balance, instead of only printing inside charge?
+This lets main decide what to return when the charge fails and keeps the result separate in new_balance
+
+What should main do when make_change returns false?
+main realizes the calculation failed and avoids using the change_out value.
+
+
+
+When is void the right return type for a register helper?
+void is appropriate when the function does not need to return a value
+
+How does price_span communicate three pieces of information (ok/fail, min, max)?
+price_span uses a boolean to communicate whether or not the function succeeded
+
+What is undefined behavior if a non-void function falls off the end without a return?
+the behavior is undefined when something calls to the undefined return value
+
+
+Why commit the header before (or separately from) a huge unfinished cafe.c?
+Makes git history more understandable and easy to read
+
+What is one file that should stay out of Git for this project, and why?
+the finished cafe file should stay removed from the git project due to the cafe file being binary not source code
+
+
+
