@@ -25,5 +25,20 @@ Makes git history more understandable and easy to read
 What is one file that should stay out of Git for this project, and why?
 the finished cafe file should stay removed from the git project due to the cafe file being binary not source code
 
+git status
+On branch main
+Your branch is ahead of 'origin/main' by 3 commits.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
 
 
+git log --online
+b73db76 (HEAD -> main) Add main
+a9fe4e2 Add cafe register helpers
+a965dd4 Add cafe header
+33ade8a (origin/main) compiled into shopping in 06oct2026
+b28f476 06oct2026 inclass commit
+39e6dff (origin/feat-branch, feat-branch) Update README with author info
+68e8673 added files
+e6e43c2 Add Module 3.1 C project and README
