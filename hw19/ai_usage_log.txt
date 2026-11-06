@@ -1,0 +1,19 @@
+PROMPT: Compiling: scores.c
+./scores.c:9:46: error: expected ‘;’, ‘,’ or ‘)’ before ‘{’ token
+    9 | void print_scores(const int scores[], int n) {
+      |                                              ^
+FAILURE: scores.c
+
+Compiling: main.c
+./main.c:9:16: error: expected ‘;’, ‘,’ or ‘)’ before ‘{’ token
+    9 | int main(void) {
+      |                ^
+FAILURE: main.c
+
+AI RESPONSE: That error usually means the compiler encountered something unexpected before the function definition, rather than there being a problem with the opening { itself.
+
+Since both scores.c and main.c have the same error, I suspect a syntax problem in a header file.
+
+Check your header files for any syntax errors.
+
+CRITIQUE: I was missing a closing parenthesis in the scores.h file. Was going mad trying to compile for a little bit there.

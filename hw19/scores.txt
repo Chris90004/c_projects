@@ -1,0 +1,61 @@
+Valid indices for an array of length n run from which valueto which value? What does C do if you read scores[n]?
+Valid arrays would be from 0 to n-1. scores[n] is accessing memory outside valid boundaries which results in incorrect values.
+
+Why does sizeof(scores) / sizeof(scores[0]) work in main on the actual array, but fail inside a function that took const int scores[]?
+inside a function the array paramete is a pointer and returns the size of the pointer not the array.
+
+For int board[3][4], which element is board[1][2] (row, column, and a one-sentence note on row-major layout)?
+board[1][2] is second row and third column, zero index.
+
+Why must a function that receives an array also receive the length?
+To prevent the funciton from accessing memory outside the array
+
+In your 2D print loop, which index is the row and which is the column? What goes wrong if you swap them?
+first index is the row and the second index is the column. Switching these will return incorrect values or be outside the arrays parameters.
+
+What does compiling with -g add that GDB needs? What happens if you forget -g?
+-g adds debugging information that makes parsing through variables available. if you dont add -g the program can still be debugged using GDB but not all information is available.
+
+Why push to the remote in addition to uploading hw19.zip on Canvas?
+uploading a ZIP file to canvas submits the assignment and using git provides record of the work done.
+
+GNU gdb (Ubuntu 12.1-0ubuntu1~22.04.2) 12.1
+Copyright (C) 2022 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./scores...
+(gdb) break main
+Breakpoint 1 at 0x11b5: file main.c, line 9.
+(gdb) run
+Starting program: /home/christian/Desktop/CS1380/c_projects/hw19/scores 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main () at main.c:9
+9	int main(void) {
+(gdb) next
+10		int scores[] = {12, 8, 15, 10, 9};
+(gdb) next
+12		int n = sizeof(scores) / sizeof(scores[0]);
+(gdb) print scores[2]
+$1 = 15
+(gdb) print n
+$2 = 0
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 9098] will be killed.
+
+Quit anyway? (y or n) y
+
