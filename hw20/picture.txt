@@ -1,0 +1,55 @@
+In the worst case, why must find_code look at every cell?
+The function must look at every cell to determine if the target exists.
+
+Why is COLS part of the parameter type pic[][COLS], while the number of rows is a separate argument?
+The number of rows can vary but C must know the number of columns for a correct memory offset
+
+What does the array store, and where does the printed glyph come from?
+They array stores 0s and 1s and the print_picture translates those codes into the printable characters.
+
+If set_cell is given row == nrows, why must it refuse the write?
+becuase of 0 index it must be set to nrows - 1 or else is will go out of scope.
+
+Row-major order means the scan finishes a row before it starts the next. What is the flat index of pic[2][3] when COLS is 5?
+flat index formula:
+\[
+(2 \times 5) + 3 = 13
+\]
+flat index = 13
+
+time ./picture
+real	0m0.003s
+user	0m0.002s
+sys	0m0.000s
+
+
+GDB
+
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+Original picture:
+#####
+#....
+####.
+#....
+#####
+
+Searching for code 1:
+find 1 -> 0
+
+Searching for code 9:
+find 9 -> -1
+
+After set_cell(2, 2, 1):
+
+Breakpoint 1, main () at main.c:31
+31		set_cell(pic, nrows, 2, 2, 1);
+(gdb) print pic[1]@COLS
+$1 = {{1, 0, 0, 0, 0}, {1, 1, 1, 1, 0}, {1, 0, 0, 0, 0}, {1, 1, 1, 1, 1}, {0, 
+    -1279337728, -405269015, 1, 0}}
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [process 328350] will be killed.
+
+
+
